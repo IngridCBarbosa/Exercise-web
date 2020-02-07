@@ -7,12 +7,27 @@
             Exercícios HTML
         </header>
         <nav>
-            <a href="exercicios/teste.html">00 - teste</a>
+            <a href="exercicios/teste.html">00 - teste</a><BR>
+            <a href="exercicios/temp.html">TEMPPPP</a>
         </nav>
-        <section id="conteúdo"></section>
+        <section id="conteudo"></section>
         <br>
         <footer>
             Curso de Web Moderno
         </footer>
+        <script>
+            document.querySelectorAll('a').forEach(link => {
+               
+                const conteudo = document.getElementById('conteudo')
+                
+                link.onclick  = function (e){
+                    e.preventDefault()
+
+                    fetch(link.href)
+                        .then(resp => resp.text())
+                        .then(html => conteudo.innerHTML = html)
+                }
+            })
+        </script>
     </body>
 </html>
